@@ -1,0 +1,94 @@
+<br>
+<div class="container d-flex justify-content-center align-items-center vh-60">
+  <div class="form-container">
+    <form #myForm="ngForm">
+      <h3>Search Train</h3>
+      <div class="row">
+        <div class="col">
+          <label for="source">Source</label><br />
+          <input
+            type="text"
+            name="source"
+            id="source"
+            [(ngModel)]="sourceName"
+            required
+            #source="ngModel"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': source.touched && source.errors }"
+          />
+          <small *ngIf="source.touched && source.errors && source.errors['required']" class="text-danger">Source is required</small>
+        </div>
+        <div class="col">
+          <label for="destination">Destination</label><br />
+          <input
+            type="text"
+            name="destination"
+            id="destination"
+            [(ngModel)]="destinationName"
+            required
+            #destination="ngModel"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': destination.touched && destination.errors }"
+          />
+          <small *ngIf="destination.touched && destination.errors && destination.errors['required']" class="text-danger">Destination is required</small>
+        </div>
+        <div class="col">
+          <label for="Date">Date</label><br />
+          <input
+            type="date"
+            name="Date"
+            id="Date"
+            [(ngModel)]="date"
+            required
+            #Date="ngModel"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': Date.touched && Date.errors }"
+            placeholder="YYYY-MM-DD"
+          />
+          <small *ngIf="Date.touched && Date.errors && Date.errors['required']" class="text-danger">Date is required</small>
+        </div>
+      </div>
+      <button mat-raised-button color="primary" (click)="searchData()" [disabled]="!myForm.valid" class="btn-search">Search</button>
+    </form>
+  </div>
+</div>
+
+<div class="container mt-4">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 style="font-weight: bold; color: #333;">Trains List</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th style="font-weight: bold;">ID</th>
+            <th style="font-weight: bold;">Name</th>
+            <th style="font-weight: bold;">Train No</th>
+            <th style="font-weight: bold;">Boarding Station</th>
+            <th style="font-weight: bold;">Destination</th>
+            <th style="font-weight: bold;">Timing</th>
+            <th style="font-weight: bold;">Date</th>
+            <th style="font-weight: bold;">Fair</th>
+            <th style="font-weight: bold;">Tickets Available</th>
+            <th style="font-weight: bold;">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let t of td">
+            <td>{{t.id}}</td>
+            <td>{{t.name}}</td>
+            <td>{{t.trainNo}}</td>
+            <td>{{t.boardingStation}}</td>
+            <td>{{t.destination}}</td>
+            <td>{{t.timing}}</td>
+            <td>{{t.date}}</td>
+            <td>{{t.fair}}</td>
+            <td>{{t.ticketsAvailable}}</td>
+            <td><button (click)="bookTrain(t.trainNo,t.fair)" class="btn btn-warning btn-sm">Book Train</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

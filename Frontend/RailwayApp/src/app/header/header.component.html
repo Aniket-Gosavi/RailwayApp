@@ -1,0 +1,23 @@
+<mat-toolbar class="custom-toolbar" color="primary">
+  <div class="logo-title-container">
+    <img src="https://images-platform.99static.com//JV_EwNy1a7ze76oeAveYyoPxiKY=/367x349:1500x1482/fit-in/500x500/99designs-contests-attachments/132/132531/attachment_132531467" alt="Logo" class="logo">
+    <span class="toolbar-title">Railway Reservation</span>
+  </div>
+  <span class="flex-spacer"></span>
+
+  <ng-container *ngIf="!isLoggedIn; else loggedInButtons">
+    <button mat-raised-button color="accent" routerLink="/signup">Sign Up</button>
+    <button mat-raised-button color="accent" routerLink="/login">Sign In</button>
+    <button mat-raised-button color="accent" routerLink="">Home</button>
+  </ng-container>
+
+  <ng-template #loggedInButtons>
+    <button mat-raised-button color="accent" routerLink="">Home</button>
+    <button mat-raised-button *ngIf="AddTrains" routerLink="/addTrains">Add Trains</button>
+    <button mat-raised-button *ngIf="showTrain" routerLink="/show">Show</button>
+    <button mat-raised-button *ngIf="searchTrains" routerLink="/search">Search</button>
+    <button mat-raised-button *ngIf="book" routerLink="/book" class="book-button">Book</button>
+    <button mat-raised-button *ngIf="mybook" routerLink="/mybook">My Bookings</button>
+    <button mat-raised-button class="account-button" (click)="onLogout()">Logout</button>
+  </ng-template>
+</mat-toolbar>

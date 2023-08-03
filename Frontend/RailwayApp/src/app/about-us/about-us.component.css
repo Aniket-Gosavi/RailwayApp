@@ -1,0 +1,52 @@
+/* ... Existing CSS ... */
+
+.about-container {
+    max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+    text-align: center;
+  }
+  
+  .train-image {
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+  }
+  
+  .features {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+  }
+  
+  .feature-item {
+    flex: 1;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feature-item i {
+    font-size: 36px;
+    color: #1976d2;
+    margin-bottom: 10px;
+  }
+  
+  .testimonial {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .testimonial i {
+    font-size: 24px;
+    color: #1976d2;
+    margin-right: 5px;
+  }
+  
+  /* ... Additional styles ... */
+  

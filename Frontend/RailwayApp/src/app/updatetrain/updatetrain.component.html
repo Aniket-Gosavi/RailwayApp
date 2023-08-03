@@ -1,0 +1,53 @@
+<br>
+<div class="container">
+  <div class="form-wrapper bg-light p-4 shadow">
+    <h3 class="text-center mb-4">Update Train</h3>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="trainName">Train Name</label>
+        <input type="text" class="form-control" id="trainName" required [(ngModel)]="train.name" name="Name">
+      </div>
+
+      <div class="form-group">
+        <label for="trainNo">Train No</label>
+        <input type="text" class="form-control" id="trainNo" required [(ngModel)]="train.trainNo" name="tno">
+      </div>
+
+      <div class="form-group">
+        <label for="boardingStation">Boarding Station</label>
+        <input type="text" class="form-control" id="boardingStation" required [(ngModel)]="train.boardingStation" name="bs">
+      </div>
+
+      <div class="form-group">
+        <label for="destination">Destination</label>
+        <input type="text" class="form-control" id="destination" required [(ngModel)]="train.destination" name="ds">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="timing">Timing</label>
+          <input type="text" class="form-control" id="timing" required [(ngModel)]="train.timing" name="time">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="date">Date</label>
+          <input type="date" class="form-control" id="date" required [(ngModel)]="train.date" name="dte">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="fair">Fair</label>
+          <input type="number" class="form-control" id="fair" required [(ngModel)]="train.fair" name="Fair">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="ticketsAvailable">Tickets Available</label>
+          <input type="number" class="form-control" id="ticketsAvailable" required [(ngModel)]="train.ticketsAvailable" name="ta">
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block mt-4">Submit</button>
+    </form>
+  </div>
+</div>

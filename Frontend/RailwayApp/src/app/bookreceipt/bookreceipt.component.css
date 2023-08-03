@@ -1,0 +1,73 @@
+/* CSS for the booking receipt */
+
+/* Reset default margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Center the receipt on the page */
+  .receipt {
+    max-width: 400px;
+    margin: 50px auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Style the heading */
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Style the details */
+  p {
+    margin-bottom: 10px;
+  }
+  
+  /* Make the strong tags bold */
+  strong {
+    font-weight: bold;
+  }
+  
+  /* Style the button */
+  button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  /* Change button color on hover */
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Regular styles for the page */
+  
+  /* Print styles to hide everything except the receipt */
+  @media print {
+    body * {
+      visibility: hidden;
+    }
+  
+    .receipt, .receipt * {
+      visibility: visible;
+    }
+  
+    .receipt {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+  

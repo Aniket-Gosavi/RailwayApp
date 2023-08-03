@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="form-wrapper border p-4">
+    <form #myForm="ngForm">
+      <h3 class="mb-4">Add Train Details</h3>
+      <div class="form-group">
+        <label for="name">Enter Train Name</label>
+        <input type="text" name="name" id="name" [(ngModel)]="td.name" required class="form-control"
+          #name="ngModel" [ngClass]="{ 'is-invalid': name.touched && name.invalid }" />
+        <div class="invalid-feedback" *ngIf="name.touched && name.invalid">Train name is required.</div>
+      </div>
+
+      <div class="form-group">
+        <label for="trainNo">Enter Train No</label>
+        <input type="number" name="trainNo" id="trainNo" [(ngModel)]="td.trainNo" required class="form-control"
+          #trainNo="ngModel" [ngClass]="{ 'is-invalid': trainNo.touched && trainNo.invalid }" />
+        <div class="invalid-feedback" *ngIf="trainNo.touched && trainNo.invalid">Train No is required.</div>
+      </div>
+
+      <div class="form-group">
+        <label for="boardingStation">Enter Boarding Station</label>
+        <input type="text" name="boardingStation" id="boardingStation" [(ngModel)]="td.boardingStation" required
+          class="form-control" #boardingStation="ngModel"
+          [ngClass]="{ 'is-invalid': boardingStation.touched && boardingStation.invalid }" />
+        <div class="invalid-feedback" *ngIf="boardingStation.touched && boardingStation.invalid">Boarding Station is
+          required.</div>
+      </div>
+
+      <div class="form-group">
+        <label for="destination">Enter Destination</label>
+        <input type="text" name="destination" id="destination" [(ngModel)]="td.destination" required
+          class="form-control" #destination="ngModel"
+          [ngClass]="{ 'is-invalid': destination.touched && destination.invalid }" />
+        <div class="invalid-feedback" *ngIf="destination.touched && destination.invalid">Destination is
+          required.</div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="timing">Enter Timing</label>
+          <input type="text" name="timing" id="timing" [(ngModel)]="td.timing" required class="form-control"
+            #timing="ngModel" [ngClass]="{ 'is-invalid': timing.touched && timing.invalid }" />
+          <div class="invalid-feedback" *ngIf="timing.touched && timing.invalid">Timing is required.</div>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="date">Enter Date</label>
+          <input type="date" name="date" id="date" [(ngModel)]="td.date" required class="form-control"
+            #date="ngModel" [ngClass]="{ 'is-invalid': date.touched && date.invalid }" />
+          <div class="invalid-feedback" *ngIf="date.touched && date.invalid">Date is required.</div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="fair">Enter Fair</label>
+          <input type="number" name="fair" id="fair" [(ngModel)]="td.fair" required class="form-control"
+            #fair="ngModel" [ngClass]="{ 'is-invalid': fair.touched && fair.invalid }" />
+          <div class="invalid-feedback" *ngIf="fair.touched && fair.invalid">Fair is required.</div>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="ticketsAvailable">Enter Tickets Available</label>
+          <input type="number" name="ticketsAvailable" id="ticketsAvailable" [(ngModel)]="td.ticketsAvailable"
+            required class="form-control" #ticketsAvailable="ngModel"
+            [ngClass]="{ 'is-invalid': ticketsAvailable.touched && ticketsAvailable.invalid }" />
+          <div class="invalid-feedback" *ngIf="ticketsAvailable.touched && ticketsAvailable.invalid">Tickets
+            Available is required.</div>
+        </div>
+      </div>
+
+      <button type="submit" (click)="addTrains()" class="btn btn-primary btn-block mt-4" [disabled]="!myForm.valid">Add Train</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,150 @@
+  <br>
+  <div class="form" style="border: 1px solid black;">
+      <form #myForm="ngForm">
+        <h3>Book Your Tickets</h3>
+        <label for="name">Enter FirstName</label><br />
+        <input
+          type="text"
+          name="name"
+          id="name"
+          [(ngModel)]="bk.firstName"
+          required
+          #name="ngModel"
+          [ngClass]="{ 'is-invalid': name.touched && name.errors }"
+          placeholder="Enter Your Name"
+        />
+          <small *ngIf="name.touched && name.errors && name.errors['required']">First name is Required</small>
+          <br>
+
+          <label for="lname">Enter LastName</label><br />
+        <input
+          type="text"
+          name="lname"
+          id="lname"
+          [(ngModel)]="bk.lastName"
+          required
+          #lname="ngModel"
+          [ngClass]="{ 'is-invalid': lname.touched && lname.errors }"
+          placeholder="Enter Your Last Name"
+        />
+          <small *ngIf="lname.touched && lname.errors && lname.errors['required']">Last name is Required</small>
+          <br>
+
+          <!-- <label for="lname">Enter Email</label><br />
+        <input
+          type="text"
+          name="em"
+          id="em"
+          [(ngModel)]="bk.email"
+          required
+          #em="ngModel"
+          [ngClass]="{ 'is-invalid': em.touched && em.errors }"
+        />
+          <small *ngIf="em.touched && em.errors && em.errors['required']">Email is Required</small>
+          <br> -->
+
+          <label for="lname">Enter TrainNo</label><br />
+        <input
+          type="number"
+          name="TrainNo"
+          id="TrainNo"
+          [(ngModel)]="bk.trainNo"
+          required
+          #TrainNo="ngModel"
+          [ngClass]="{ 'is-invalid': TrainNo.touched && TrainNo.errors }"
+          disabled
+        />
+          <small *ngIf="TrainNo.touched && TrainNo.errors && TrainNo.errors['required']">Train No is Required</small>
+          <br>
+
+          <label for="Travellers">Enter Number Of Travellers</label><br />
+        <input
+          type="number"
+          name="Travellers"
+          id="Travellers"
+          [(ngModel)]="bk.numberOfTravellers"
+          required
+          #Travellers="ngModel"
+          [ngClass]="{ 'is-invalid': Travellers.touched && Travellers.errors }"
+        />
+          <small *ngIf="Travellers.touched && Travellers.errors && Travellers.errors['required']">Travellers is Required</small>
+          <br>
+          
+        <div *ngIf="enablePassengerForms">
+          <div *ngFor="let passenger of bk.passengers; let i = index">
+            <h3>Passenger {{ i + 1 }} Details</h3>
+            <label for="passengerFirstName{{ i }}">Enter First Name</label><br />
+            <input
+              type="text"
+              name="passengerFirstName{{ i }}"
+              id="passengerFirstName{{ i }}"
+              [(ngModel)]="passenger.firstName"
+              required
+              #passengerFirstName="ngModel"
+              [ngClass]="{ 'is-invalid': passengerFirstName.touched && passengerFirstName.errors }"
+            />
+            <small
+              *ngIf="passengerFirstName.touched && passengerFirstName.errors && passengerFirstName.errors['required']"
+            >
+              First name is Required
+            </small>
+            <br>
+      
+            <label for="passengerLastName{{ i }}">Enter Last Name</label><br />
+            <input
+              type="text"
+              name="passengerLastName{{ i }}"
+              id="passengerLastName{{ i }}"
+              [(ngModel)]="passenger.lastName"
+              required
+              #passengerLastName="ngModel"
+              [ngClass]="{ 'is-invalid': passengerLastName.touched && passengerLastName.errors }"
+            />
+            <small
+              *ngIf="passengerLastName.touched && passengerLastName.errors && passengerLastName.errors['required']"
+            >
+              Last name is Required
+            </small>
+            <br>
+      
+            <label for="passengerCategory{{ i }}">Select Category</label><br />
+        <select name="passengerCategory{{ i }}" id="passengerCategory{{ i }}"
+                [(ngModel)]="passenger.Category" required
+                #passengerCategory="ngModel"
+                [ngClass]="{ 'is-invalid': passengerCategory.touched && passengerCategory.errors }">
+          <option value="" disabled selected>Select Category</option>
+          <option value="Adult">Adult</option>
+          <option value="Child">Child</option>
+        </select>
+        <small *ngIf="passengerCategory.touched && passengerCategory.errors && passengerCategory.errors['required']">
+          Category is Required
+        </small>
+        <br>
+
+        <label for="passengerGender{{ i }}">Select Gender</label><br />
+        <select name="passengerGender{{ i }}" id="passengerGender{{ i }}"
+                [(ngModel)]="passenger.Gender" required
+                #passengerGender="ngModel"
+                [ngClass]="{ 'is-invalid': passengerGender.touched && passengerGender.errors }">
+          <option value="" disabled selected>Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+        <small *ngIf="passengerGender.touched && passengerGender.errors && passengerGender.errors['required']">
+          Gender is Required
+        </small>
+        <br>
+      </div>
+    </div>
+
+    <button mat-raised-button color="accent" (click)="Add()" *ngIf="bk.numberOfTravellers">Add Passengers</button>
+    <button mat-raised-button color="accent" (click)="book()" [disabled]="!myForm.valid">Book</button>
+
+  </form>
+
+  <div class="footer">
+    <p class="footer-text">© 2023 Railway Reservation. All rights reserved.</p>
+  </div>
+</div>
+<br>
+      
