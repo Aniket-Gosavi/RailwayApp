@@ -1,73 +1,60 @@
-/* CSS for the booking receipt */
+.receipt {
+  border: 1px solid #ccc;
+  padding: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
 
-/* Reset default margins and paddings */
-* {
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Center the receipt on the page */
-  .receipt {
-    max-width: 400px;
-    margin: 50px auto;
-    border: 1px solid #ccc;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Style the heading */
-  h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  /* Style the details */
-  p {
-    margin-bottom: 10px;
-  }
-  
-  /* Make the strong tags bold */
-  strong {
-    font-weight: bold;
-  }
-  
-  /* Style the button */
+h2 {
+  margin: 0;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+p {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+strong {
+  font-weight: bold;
+}
+
+.customer-info {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.payment-info {
+  margin-bottom: 15px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:active {
+  background-color: #004099;
+}
+
+@media print {
   button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-top: 20px;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
+    display: none;
   }
-  
-  /* Change button color on hover */
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Regular styles for the page */
-  
-  /* Print styles to hide everything except the receipt */
-  @media print {
-    body * {
-      visibility: hidden;
-    }
-  
-    .receipt, .receipt * {
-      visibility: visible;
-    }
-  
-    .receipt {
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
-  }
-  
+}

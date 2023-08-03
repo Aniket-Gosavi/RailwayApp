@@ -1,10 +1,7 @@
 package com.aniket.service;
 
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 import org.json.JSONObject;
@@ -22,8 +19,6 @@ import com.aniket.repository.BookingRepo;
 import com.aniket.repository.TrainRepo;
 import com.razorpay.Order;
 import com.razorpay.RazorpayClient;
-import com.razorpay.RazorpayException;
-
 import mailservice.EmailServiceImpl;
 
 @Service

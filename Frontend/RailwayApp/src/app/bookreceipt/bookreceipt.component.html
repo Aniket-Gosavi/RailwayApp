@@ -1,10 +1,16 @@
+<br>
 <div class="receipt">
   <h2>Booking Receipt</h2>
-  <p><strong>Train Number:</strong> {{ bookingDetails.trainNo }}</p>
-  <p><strong>First Name:</strong> {{ bookingDetails.firstName }}</p>
-  <p><strong>Last Name:</strong> {{ bookingDetails.lastName }}</p>
-  <p><strong>Number of Travellers:</strong> {{ bookingDetails.numberOfTravellers }}</p>
-  <p><strong>Total Amount:</strong> {{ num }}</p>
-  <button (click)="makePayment()">Make Payment</button>
-  <button (click)="printReceipt()">Print Receipt</button>
+  <div class="customer-info">
+    <p><strong>Train Number:</strong> {{ bookingDetails.trainNo }}</p>
+    <p><strong>First Name:</strong> {{ bookingDetails.firstName }}</p>
+    <p><strong>Last Name:</strong> {{ bookingDetails.lastName }}</p>
+    <p><strong>Number of Travellers:</strong> {{ bookingDetails.numberOfTravellers }}</p>
+  </div>
+  <div class="payment-info">
+    <p><strong>Total Amount:</strong> {{ num }}</p>
+    <p><strong>Payment Status:</strong> {{ payment }}</p>
+  </div>
+  <button (click)="makePayment()">Make Payment</button><br>
+  <button *ngIf="paymentDone" (click)="printReceipt()">Print Receipt</button>
 </div>
