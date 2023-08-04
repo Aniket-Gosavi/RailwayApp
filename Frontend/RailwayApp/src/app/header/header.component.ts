@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { StorageService } from '../services/storage.service';
-
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { ConfirmationDialogComponentComponent } from '../confirmation-dialog-component/confirmation-dialog-component.component';
 
 @Component({
   selector: 'app-header',
@@ -25,7 +26,7 @@ export class HeaderComponent implements OnInit {
   clickCart:boolean = false;
 
   constructor(private storageService:StorageService,
-              private router:Router){
+              private router:Router,private dialog: MatDialog){
 
   }
   ngOnInit(): void {
@@ -47,13 +48,18 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  onLogout(){
-    this.storageService.signOut();
-    alert('You have logged out successfully');
-    this.router.navigate(['login']).then(()=>{
-      window.location.reload();
+  onLogout() {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponentComponent);
+
+    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+      if (confirmed) {
+        this.storageService.signOut();
+        this.router.navigate(['login']).then(() => {
+          window.location.reload();
+        });
+      }
     });
-  } 
+  }
 
   onClickCart(){
     this.clickCart = true;

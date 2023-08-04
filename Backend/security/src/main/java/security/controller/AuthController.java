@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import mailservice.EmailServiceImpl;
 import security.jwt.jwt.JwtUtils;
 import security.jwt.services.UserDetailsImpl;
 import security.jwt.services.UserDetailsServiceImpl;
@@ -52,6 +53,9 @@ public class AuthController {
 	PasswordEncoder encoder;
 	@Autowired
 	JwtUtils jwtUtils;
+	
+	@Autowired
+	private EmailServiceImpl esi;
 
 	@Autowired
 	UserDetailsServiceImpl userDetailsService;

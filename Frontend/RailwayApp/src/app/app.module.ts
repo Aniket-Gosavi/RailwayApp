@@ -39,6 +39,7 @@ import { LoginErrorDialogComponent } from './login-error-dialog/login-error-dial
 import { BookreceiptComponent } from './bookreceipt/bookreceipt.component';
 import { ShowbookingsComponent } from './showbookings/showbookings.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { ConfirmationDialogComponentComponent } from './confirmation-dialog-component/confirmation-dialog-component.component';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
     LoginErrorDialogComponent,
     BookreceiptComponent,
     ShowbookingsComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    ConfirmationDialogComponentComponent
 
   ],
   imports: [

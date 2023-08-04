@@ -1,67 +1,33 @@
-.panel {
-  width: 80%;
-  margin: 0 auto;
-  padding: 20px;
+.custom-card {
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
 }
 
-.panel-heading {
-  background-color: #337ab7;
-  color: #fff;
-  padding: 10px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+.custom-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
+.card-title {
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 0.5rem;
 }
 
-.table th, .table td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
+hr {
+  border-top: 1px solid #ccc;
+  margin: 0.75rem 0;
 }
 
-.table th {
-  background-color: #f2f2f2;
-}
-
-.table tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-.table tr:hover {
-  background-color: #ddd;
+.card-text {
+  margin-bottom: 0;
 }
 
 .btn {
-  cursor: pointer;
+  width: 100px;
 }
 
-.btn-warning {
-  background-color: #f0ad4e;
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 3px;
-}
-
-.btn-warning:hover {
-  background-color: #ec971f;
-}
-
-.btn-danger {
-  background-color: #d9534f;
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 3px;
-}
-
-.btn-danger:hover {
-  background-color: #c9302c;
+.row {
+  justify-content: center;
 }

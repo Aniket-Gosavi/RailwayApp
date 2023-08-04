@@ -1,69 +1,18 @@
-/* Global styles */
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f5f5f5;
-}
-
-/* Component-specific styles */
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  margin-top: 20px;
 }
 
 .form-wrapper {
-  padding: 20px;
-  border-radius: 8px;
-  background-color: #ffffff;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.btn-block {
   width: 100%;
 }
 
-h3 {
-  margin-top: 0;
-  text-align: center;
-  font-size: 28px;
-  color: #333333;
-  margin-bottom: 30px;
-}
-
-.mat-form-field {
-  width: 100%;
-}
-
-.full-width {
-  width: 100%;
-}
-
-.half-width {
-  display: inline-block;
-  width: calc(50% - 10px);
-}
-
-.form-field {
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: space-between;
-}
-
-mat-label {
-  color: #666666;
-}
-
-mat-input {
-  font-size: 16px;
-  color: #333333;
-}
-
-mat-raised-button {
-  font-size: 16px;
-  text-transform: uppercase;
-}
-
-.submit-button {
-  margin-top: 30px;
-  width: 100%;
-  display: block;
+@media (max-width: 576px) {
+  .form-group {
+    margin-bottom: 15px;
+  }
 }
