@@ -7,6 +7,7 @@ export class Booking {
      email: string;
      trainNo: number;
      numberOfTravellers: number;
+     seatPreference: string;
      amount:any;
      date:any;
      passengers: Passenger[];

@@ -3,6 +3,7 @@ import { AdminserviceService } from '../adminservice.service';
 import { TrainDetails } from '../model/trainDetails';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import  Swal  from 'sweetalert2'
 
 @Component({
   selector: 'app-searchtrain',
@@ -40,12 +41,22 @@ export class SearchtrainComponent {
   }
 
   searchData() {
-    this.user.searchTrain(this.sourceName,this.destinationName,this.date).subscribe(data => {
-      this.td = data;
-      console.log(data);
-    }, (error) => {
-      alert("Sorry No Train Available")
-      window.location.reload();
-    });
-  }
+    this.user.searchTrain(this.sourceName, this.destinationName, this.date).subscribe(
+        data => {
+            this.td = data;
+            console.log(data);
+        },
+        (error) => {
+            // Use SweetAlert for displaying an error message
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Sorry, No Train Available',
+            }).then(() => {
+                // Reload the window after user clicks OK
+                window.location.reload();
+            });
+        }
+    );
+}
 }

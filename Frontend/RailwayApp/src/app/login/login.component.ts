@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { StorageService } from '../services/storage.service';
-import { LoginErrorDialogComponent } from '../login-error-dialog/login-error-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -37,8 +37,9 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  onLogin() {
-    this.authService.login(this.userlogin).subscribe(data => {
+onLogin() {
+  this.authService.login(this.userlogin).subscribe(
+    (data) => {
       console.log(data);
       this.storageService.saveToken(data.accessToken);
       this.storageService.saveUser(data);
@@ -47,25 +48,29 @@ export class LoginComponent implements OnInit {
       this.isLoginFailed = false;
       this.isLoggedIn = true;
       this.roles = this.storageService.getUser().roles;
-      alert('You have successfully logged in as ' + this.roles);
-      this.router.navigate(['']).then(() => {
-        window.location.reload();
-      });
-    }, (error) => {
-      console.log(error);
-      this.isLoginFailed = true;
-      this.errorMessage = 'Invalid username or password.';
 
-      // Open the dialog with the error message
-      this.dialog.open(LoginErrorDialogComponent, {
-        data: this.errorMessage,
+      Swal.fire({
+        title: 'Success',
+        text: 'Logged In Successfully',
+        icon: 'success',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'OK',
+      }).then(() => {
+        this.router.navigate(['']).then(() => {
+          window.location.reload();
+        });
       });
+    },
+    (error) => {
+      Swal.fire('Oops', 'Invalid username/Password', 'question');
 
       // Reset the userlogin object to clear the textboxes
       this.userlogin = {
         username: '',
-        password: ''
+        password: '',
       };
-    });
-  }
+    }
+  );
+}
+
 }

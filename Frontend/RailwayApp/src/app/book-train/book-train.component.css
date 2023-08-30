@@ -1,73 +1,49 @@
-.form {
-    border: 1px solid black;
-    padding: 30px;
-    width: 600px;
-    margin: 0 auto;
-    background-color: #f2f2f2;
-  }
-  
-  h3 {
-    margin-top: 0;
-    font-size: 20px;
-    color: #333;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
-    font-size: 16px;
-  }
-  
-  input[type="text"],
-  input[type="number"],
-  select {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-  }
-  
-  .small-error {
-    color: #ff0000;
-    font-size: 12px;
-    margin-top: 6px;
-    display: block;
-  }
-  
-  button {
-    display: block;
-    margin-top: 16px;
-    padding: 12px 34px;
-    background-color: #2196f3;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    text-align: center;
-    text-justify: auto;
-  }
-  
-  button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
+.custom-form {
+  border: 1px solid black;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 600px;
+}
 
-  .footer {
-    background-color: #f2f2f2;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .footer-text {
-    font-size: 14px;
-    color: #888;
-  }
-  
-  .form.passenger-info-enabled .passenger-details {
-    border: 1px solid blue; /* Modify the border style as per your requirement */
-    padding: 10px;
-    margin-top: 10px;
-  }
+.custom-form h3 {
+  margin-top: 0;
+}
+
+.custom-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.custom-form input,
+.custom-form select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.custom-form select {
+  cursor: pointer;
+}
+
+.custom-form .is-invalid {
+  border-color: #dc3545;
+}
+
+.custom-form small {
+  color: #dc3545;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer-text {
+  font-size: 12px;
+  color: #777;
+}

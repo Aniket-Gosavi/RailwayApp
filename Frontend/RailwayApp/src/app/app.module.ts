@@ -30,16 +30,12 @@ import { FrontPageComponent } from './front-page/front-page.component';
 import { FilterPipe } from './shared/filter.pipe';
 import { AddtrainsComponent } from './addtrains/addtrains.component';
 import { ShowTrainsComponent } from './show-trains/show-trains.component';
-import { CancelticketComponent } from './cancelticket/cancelticket.component';
-import { DeletetrainComponent } from './deletetrain/deletetrain.component';
 import { SearchtrainComponent } from './searchtrain/searchtrain.component';
 import { UpdatetrainComponent } from './updatetrain/updatetrain.component';
 import { BookTrainComponent } from './book-train/book-train.component';
-import { LoginErrorDialogComponent } from './login-error-dialog/login-error-dialog.component';
 import { BookreceiptComponent } from './bookreceipt/bookreceipt.component';
 import { ShowbookingsComponent } from './showbookings/showbookings.component';
 import { AboutUsComponent } from './about-us/about-us.component';
-import { ConfirmationDialogComponentComponent } from './confirmation-dialog-component/confirmation-dialog-component.component';
 
 
 @NgModule({
@@ -52,16 +48,12 @@ import { ConfirmationDialogComponentComponent } from './confirmation-dialog-comp
     FilterPipe,
     AddtrainsComponent,
     ShowTrainsComponent,
-    CancelticketComponent,
-    DeletetrainComponent,
     SearchtrainComponent,
     UpdatetrainComponent,
     BookTrainComponent,
-    LoginErrorDialogComponent,
     BookreceiptComponent,
     ShowbookingsComponent,
-    AboutUsComponent,
-    ConfirmationDialogComponentComponent
+    AboutUsComponent
 
   ],
   imports: [

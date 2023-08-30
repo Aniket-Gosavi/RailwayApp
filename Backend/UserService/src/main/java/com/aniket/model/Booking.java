@@ -28,6 +28,7 @@ public class Booking {
 	private int trainNo;
 	@NotEmpty(message = "Travellers shoud not be empty")
 	private int numberOfTravellers;
+	private String seatPreference;
 	private double amount;
 	private LocalDate date;
 	private List<Passengers> passList; 

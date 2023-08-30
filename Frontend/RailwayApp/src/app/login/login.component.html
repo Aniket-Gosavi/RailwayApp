@@ -21,10 +21,9 @@
                 maxlength="20"
                 #username="ngModel"
                 [ngClass]="{'is-invaild':username.touched && username.errors}" />
-            </div>
-            <small *ngIf="username.touched && username.errors && username.errors['required']">*Username is required</small>
+                <small *ngIf="username.touched && username.errors && username.errors['required']">*Username is required</small>
                 <small *ngIf="username.touched && username.errors && username.errors['minlength']">*Username must be at least 3 characters</small><br>
-  
+            </div>
             <!-- Password input -->
             <div class="form-outline mb-3">
                 <label class="form-label" for="form3Example4">Password</label>

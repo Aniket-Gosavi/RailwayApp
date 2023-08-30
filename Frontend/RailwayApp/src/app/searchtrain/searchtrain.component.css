@@ -1,70 +1,52 @@
-/* Styles for the form container */
-.form-container {
-  border: 1px solid black;
+.custom-form-container {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
   padding: 20px;
-  max-width: 400px;
-  background-color: #f7f7f7;
-  border-radius: 10px;
-  margin: 0 auto;
-  margin-top: 30px;
-}
-
-.form-container h3 {
-  margin-bottom: 20px;
-  font-weight: bold;
-  color: #333;
-}
-
-.form-control {
-  border: 1px solid #ddd;
   border-radius: 5px;
-  padding: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 400px;
 }
 
-/* Styles for error messages */
-.text-danger {
-  color: #d32f2f;
+.custom-form-container h3 {
+  font-weight: bold;
+  margin-bottom: 15px;
 }
 
-.btn-book:hover {
-  background-color: #ffca28;
-}
-
-.form-row {
-  margin-bottom: 10px;
+.form-control.is-invalid {
+  border-color: #dc3545;
 }
 
 .btn-search {
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
-.custom-card {
+.text-danger {
+  color: #dc3545;
+}
+
+.custom-train-card {
+  background-color: #ffffff;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 16px;
-  transition: box-shadow 0.3s ease;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  margin-bottom: 20px;
 }
 
-.custom-card:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.custom-train-card:hover {
+  transform: translateY(-5px);
 }
 
-.card-title {
+.custom-train-card h5.card-title {
   font-weight: bold;
-  color: #007bff;
-  margin-bottom: 0.5rem;
 }
 
-hr {
-  border-top: 1px solid #ccc;
-  margin: 0.75rem 0;
+.custom-train-card .card-text {
+  font-size: 14px;
 }
 
-.card-text {
-  margin-bottom: 0;
-}
-
-.btn {
+.custom-train-card .btn {
   margin-top: auto;
 }

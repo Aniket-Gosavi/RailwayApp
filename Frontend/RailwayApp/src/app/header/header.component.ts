@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { StorageService } from '../services/storage.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { ConfirmationDialogComponentComponent } from '../confirmation-dialog-component/confirmation-dialog-component.component';
+import Swal from 'sweetalert2';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -26,7 +27,8 @@ export class HeaderComponent implements OnInit {
   clickCart:boolean = false;
 
   constructor(private storageService:StorageService,
-              private router:Router,private dialog: MatDialog){
+              private router:Router,private dialog: MatDialog,
+              private location: Location){
 
   }
   ngOnInit(): void {
@@ -49,26 +51,22 @@ export class HeaderComponent implements OnInit {
   }
 
   onLogout() {
-    const dialogRef = this.dialog.open(ConfirmationDialogComponentComponent);
-
-    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
-      if (confirmed) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'Do you want to log out?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, log out',
+      cancelButtonText: 'Cancel',
+    }).then((result) => {
+      if (result.isConfirmed) {
         this.storageService.signOut();
         this.router.navigate(['login']).then(() => {
           window.location.reload();
         });
       }
-    });
-  }
-
-  onClickCart(){
-    this.clickCart = true;
-    this.router.navigate(['/cart']);
-  }
-
-  onClickElectronicShopping(){
-    this.router.navigate(['/home']).then(()=>{
-      window.location.reload();
     });
   }
 }

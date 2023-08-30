@@ -1,23 +1,24 @@
-<div class="container mt-4">
-  <h2 class="text-center">Trains List</h2>
-  <div class="row">
-    <div class="col-md-4 mb-4" *ngFor="let t of td">
-      <div class="card custom-card">
-        <div class="card-body">
-          <h5 class="card-title">{{ t.name }} (Train No: {{ t.trainNo }})</h5>
-          <hr>
-          <p class="card-text">
-            <strong>Boarding Station:</strong> {{ t.boardingStation }}<br>
-            <strong>Destination:</strong> {{ t.destination }}<br>
-            <strong>Timing:</strong> {{ t.timing }}<br>
-            <strong>Date:</strong> {{ t.date }}<br>
-            <strong>Fare:</strong> {{ t.fair }}<br>
-            <strong>Tickets Available:</strong> {{ t.ticketsAvailable }}
-          </p>
-          <div class="d-flex justify-content-between">
-            <button (click)="updateUser(t.id)" class="btn btn-warning">Update</button>
-            <button (click)="deleteTrain(t.id)" class="btn btn-danger">Delete</button>
-          </div>
+<div class="train-list-container">
+  <h2 class="train-list-heading">Train Details</h2>
+  <div class="train-cards-container">
+    <div class="train-card" *ngFor="let t of td">
+      <div class="train-card-header">
+        <h3 class="train-name">{{ t.name }}</h3>
+        <p class="train-id">(Train No: {{ t.trainNo }})</p>
+      </div>
+      <hr class="train-card-divider">
+      <div class="train-card-content">
+        <p class="train-info">
+          <strong>Boarding Station:</strong> {{ t.boardingStation }}<br>
+          <strong>Destination:</strong> {{ t.destination }}<br>
+          <strong>Timing:</strong> {{ t.timing }}<br>
+          <strong>Date:</strong> {{ t.date }}<br>
+          <strong>Fare:</strong> {{ t.fair }}<br>
+          <strong>Tickets Available:</strong> {{ t.ticketsAvailable }}
+        </p>
+        <div class="train-card-actions">
+          <button (click)="updateUser(t.id)" class="btn update-button">Update</button>
+          <button (click)="deleteTrain(t.id)" class="btn delete-button">Delete</button>
         </div>
       </div>
     </div>

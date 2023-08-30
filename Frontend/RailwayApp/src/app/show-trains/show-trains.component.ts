@@ -3,7 +3,7 @@ import { AdminserviceService } from '../adminservice.service';
 import { TrainDetails } from '../model/trainDetails';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-show-trains',
   templateUrl: './show-trains.component.html',
@@ -31,14 +31,27 @@ export class ShowTrainsComponent {
     this.router.navigate(['update']);
   }
 
-  deleteTrain(id: any){
-    this.admin.delete(id).subscribe(data=>{
-      id=data;
-      console.log(data);
-    })
-    alert("Deleted!!");
-    window.location.reload();
-    
+  deleteTrain(deleteid:any) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'Do you want to delete this train?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it',
+      cancelButtonText: 'Cancel',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.admin.delete(deleteid).subscribe((data) => {
+          deleteid = data;
+          console.log(data);
+        });
+        Swal.fire('Deleted!', 'The train has been deleted.', 'success').then(() => {
+          this.router.navigate(['show']);
+        });
+      }
+    });
   }
 
 }

@@ -2,19 +2,19 @@
   <h2 style="font-weight: bold; color: #333;">My Bookings</h2>
   <div class="row">
     <div class="col-md-4 mb-4" *ngFor="let t of bk">
-      <div class="custom-card">
-        <div class="card-body">
-          <h5 class="card-title">Booking ID: {{ t.id }}</h5>
-          <hr>
-          <p class="card-text">
-            <strong>Name:</strong> {{ t.firstName }} {{ t.lastName }}<br>
-            <strong>Email:</strong> {{ t.email }}<br>
-            <strong>Train No:</strong> {{ t.trainNo }}<br>
-            <strong>Total Travellers:</strong> {{ t.numberOfTravellers }}<br>
-            <strong>Total Amount:</strong> {{ t.amount }}<br>
-            <strong>Date Of Booking:</strong> {{ t.date }}
-          </p>
-          <button (click)="Cancel(t.id)" class="btn btn-warning">Cancel</button>
+      <div class="my-custom-booking"> <!-- Updated class name -->
+        <div class="booking-header">
+          <h5 class="booking-id">Booking ID: {{ t.id }}</h5>
+          <button (click)="Cancel(t.id)" class="btn btn-warning cancel-button">Cancel</button>
+        </div>
+        <hr>
+        <div class="booking-details">
+          <p><strong>Name:</strong> {{ t.firstName }} {{ t.lastName }}</p>
+          <p><strong>Email:</strong> {{ t.email }}</p>
+          <p><strong>Train No:</strong> {{ t.trainNo }}</p>
+          <p><strong>Total Travellers:</strong> {{ t.numberOfTravellers }}</p>
+          <p><strong>Total Amount:</strong> {{ t.amount }}</p>
+          <p><strong>Date Of Booking:</strong> {{ t.date }}</p>
         </div>
       </div>
     </div>

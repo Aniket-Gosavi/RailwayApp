@@ -29,11 +29,13 @@ public class TrainServiceImpl implements TrainServiceI {
 		if(check != null) {
 			if(check.getTrainNo() == td.getTrainNo() && check.getBoardingStation() == td.getBoardingStation() && check.getDestination() == td.getDestination()) {
 				throw new ResourceNotFoundException("Cannot insert duplicate record");
+			}else {
+				td.setId(seq.getSequenceNum(TrainDetails.sequenceName));
+				TrainDetails traindetails = trepo.save(td);
+				return td;
 			}
 		}
-		td.setId(seq.getSequenceNum(TrainDetails.sequenceName));
-		TrainDetails traindetails = trepo.save(td);
-		return td;
+		return null;
 	}
 	
 

@@ -6,10 +6,11 @@
   <span class="flex-spacer"></span>
 
   <ng-container *ngIf="!isLoggedIn; else loggedInButtons">
+    <button mat-raised-button color="accent" routerLink="">Home</button>
     <button mat-raised-button color="accent" routerLink="/signup">Sign Up</button>
     <button mat-raised-button color="accent" routerLink="/login">Sign In</button>
-    <button mat-raised-button color="accent" routerLink="">Home</button>
   </ng-container>
+  <button  mat-raised-button color="accent" routerLink="/about">About Us</button>
 
   <ng-template #loggedInButtons>
     <button mat-raised-button color="accent" routerLink="">Home</button>

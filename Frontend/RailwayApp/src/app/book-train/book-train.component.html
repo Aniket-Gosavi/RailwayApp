@@ -1,6 +1,6 @@
   <br>
-  <div class="form" style="border: 1px solid black;">
-      <form #myForm="ngForm">
+  <div class="custom-form">
+    <form #myForm="ngForm">
         <h3>Book Your Tickets</h3>
         <label for="name">Enter FirstName</label><br />
         <input
@@ -30,19 +30,6 @@
           <small *ngIf="lname.touched && lname.errors && lname.errors['required']">Last name is Required</small>
           <br>
 
-          <!-- <label for="lname">Enter Email</label><br />
-        <input
-          type="text"
-          name="em"
-          id="em"
-          [(ngModel)]="bk.email"
-          required
-          #em="ngModel"
-          [ngClass]="{ 'is-invalid': em.touched && em.errors }"
-        />
-          <small *ngIf="em.touched && em.errors && em.errors['required']">Email is Required</small>
-          <br> -->
-
           <label for="lname">Enter TrainNo</label><br />
         <input
           type="number"
@@ -69,6 +56,22 @@
         />
           <small *ngIf="Travellers.touched && Travellers.errors && Travellers.errors['required']">Travellers is Required</small>
           <br>
+
+          <label for="seat">Select Preference</label><br />
+        <select name="seat" id="seat"
+                [(ngModel)]="bk.seatPreference" required
+                #seat="ngModel"
+                [ngClass]="{ 'is-invalid': seat.touched && seat.errors }">
+          <option value="" disabled selected>Select Category</option>
+          <option value="No Preference">No Preference</option>
+          <option value="Below">Below</option>
+          <option value="Middle">Middle</option>
+          <option value="Upper">Upper</option>
+        </select>
+        <small *ngIf="seat.touched && seat.errors && seat.errors['required']">
+          Preference  is Required
+        </small>
+        <br>
           
         <div *ngIf="enablePassengerForms">
           <div *ngFor="let passenger of bk.passengers; let i = index">
@@ -137,8 +140,11 @@
       </div>
     </div>
 
-    <button mat-raised-button color="accent" (click)="Add()" *ngIf="bk.numberOfTravellers">Add Passengers</button>
-    <button mat-raised-button color="accent" (click)="book()" [disabled]="!myForm.valid">Book</button>
+    <div *ngIf="bk.numberOfTravellers > 1">
+      <button mat-raised-button color="accent" (click)="Add()">Add Passengers</button>
+    </div>
+    <br>
+    <button mat-raised-button color="accent" (click)="booking()" [disabled]="!myForm.valid">Book</button>
 
   </form>
 
